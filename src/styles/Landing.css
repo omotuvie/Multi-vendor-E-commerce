@@ -1,0 +1,579 @@
+.nx-lp {
+    --bg: #FFF8E7;
+    --ink: #341F1A;
+    --mut: rgba(52, 31, 26, .72);
+    --teal: #527C82;
+    --tint: #CFE1E2;
+    --line: #e8e1d6;
+    --gold: #b18a43;
+    --card: #FFF8E7;
+    --dark: #341F1A;
+    background: var(--bg);
+    color: var(--ink);
+    overflow-x: clip
+}
+
+.nx-lp * {
+    box-sizing: border-box
+}
+
+.nx-lp-wrap {
+    width: min(1180px, 100% - 48px);
+    margin: 0 auto
+}
+
+.nx-lp h1,
+.nx-lp h2,
+.nx-lp h3 {
+    margin: 0;
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 500
+}
+
+.nx-lp h1 {
+    font-size: clamp(40px, 6vw, 82px);
+    line-height: 1;
+    letter-spacing: -2.5px
+}
+
+.nx-lp h2 {
+    font-size: clamp(30px, 4vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -1px
+}
+
+.nx-lp p {
+    margin: 0;
+    color: var(--mut);
+    line-height: 1.7
+}
+
+.nx-lp-eyebrow {
+    display: block;
+    margin-bottom: 16px;
+    color: var(--teal);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2.4px;
+    text-transform: uppercase
+}
+
+@keyframes nx-rise {
+    from {
+        opacity: 0;
+        transform: translateY(46px) rotate(3deg)
+    }
+
+    to {
+        opacity: 1;
+        transform: none
+    }
+}
+
+@keyframes nx-float {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(var(--r))
+    }
+
+    50% {
+        transform: translateY(-16px) rotate(var(--r))
+    }
+}
+
+@keyframes nx-mq {
+    to {
+        transform: translateX(-50%)
+    }
+}
+
+.nx-lp .w {
+    display: inline-block;
+    margin-right: .22em;
+    opacity: 0;
+    animation: nx-rise .9s cubic-bezier(.22, 1, .36, 1) forwards;
+    animation-delay: calc(var(--i)*70ms + 150ms)
+}
+
+.rv {
+    opacity: 0;
+    transform: translateY(46px);
+    transition: opacity .9s ease, transform .9s cubic-bezier(.22, 1, .36, 1);
+    transition-delay: calc(var(--d, 0)*90ms)
+}
+
+.rv.in {
+    opacity: 1;
+    transform: none
+}
+
+.nx-lp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 28px;
+    border: 1px solid var(--ink);
+    border-radius: 50px;
+    background: var(--ink);
+    color: var(--bg);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: .3s
+}
+
+.nx-lp-btn:hover {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px rgba(82, 124, 130, .35)
+}
+
+.nx-lp-btn.is-ghost {
+    background: transparent;
+    color: var(--ink)
+}
+
+.nx-lp-btn.is-ghost:hover {
+    background: var(--tint);
+    color: #341F1A;
+    border-color: var(--ink)
+}
+
+.nx-lp-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 32px
+}
+
+.nx-lp-hero {
+    padding: clamp(44px, 7vw, 92px) 0
+}
+
+.nx-lp-hero .nx-lp-wrap {
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    align-items: center;
+    gap: clamp(28px, 5vw, 64px)
+}
+
+.nx-lp-hero p {
+    max-width: 500px;
+    margin-top: 24px;
+    font-size: 16px
+}
+
+.nx-lp-collage {
+    position: relative;
+    height: clamp(380px, 46vw, 580px)
+}
+
+.nx-lp .fc {
+    position: absolute;
+    overflow: hidden;
+    border-radius: 12px;
+    background: linear-gradient(150deg, var(--tint), var(--gold)) center/cover;
+    box-shadow: 0 22px 50px rgba(52, 31, 26, .22);
+    animation: nx-float 6s ease-in-out infinite
+}
+
+.nx-lp .fc:nth-child(1) {
+    left: 0;
+    top: 8%;
+    width: 58%;
+    height: 72%;
+    --r: -4deg
+}
+
+.nx-lp .fc:nth-child(2) {
+    right: 0;
+    top: 0;
+    width: 46%;
+    height: 54%;
+    --r: 5deg;
+    animation-delay: -2s
+}
+
+.nx-lp .fc:nth-child(3) {
+    right: 8%;
+    bottom: 0;
+    width: 42%;
+    height: 38%;
+    --r: -2deg;
+    animation-delay: -4s
+}
+
+.nx-lp .fc span {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    padding: 7px 12px;
+    border-radius: 50px;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 11px;
+    font-weight: 800
+}
+
+.nx-lp-mq {
+    overflow: hidden;
+    padding: 20px 0;
+    background: var(--dark);
+    color: #FFF8E7
+}
+
+.nx-lp-mq div {
+    display: flex;
+    gap: 44px;
+    width: max-content;
+    animation: nx-mq 30s linear infinite
+}
+
+.nx-lp-mq:hover div {
+    animation-play-state: paused
+}
+
+.nx-lp-mq span {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(22px, 3vw, 34px);
+    white-space: nowrap
+}
+
+.nx-lp-mq span::after {
+    content: "✦";
+    margin-left: 44px;
+    color: var(--tint);
+    font-size: .6em;
+    vertical-align: middle
+}
+
+.nx-lp-section {
+    padding: clamp(56px, 8vw, 104px) 0
+}
+
+.nx-lp-head {
+    max-width: 660px;
+    margin-bottom: 44px
+}
+
+.nx-lp-head p {
+    margin-top: 16px
+}
+
+.nx-lp-bento {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: minmax(210px, auto);
+    gap: 16px
+}
+
+.nx-lp-bento .b {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 26px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--card);
+    transition: transform .35s ease, box-shadow .35s ease
+}
+
+.nx-lp-bento .b:hover {
+    transform: translateY(-6px) rotate(-.4deg);
+    box-shadow: 0 18px 36px rgba(52, 31, 26, .16)
+}
+
+.nx-lp-bento .wide {
+    grid-column: span 2
+}
+
+.nx-lp-bento .dark {
+    background: var(--dark);
+    color: #FFF8E7
+}
+
+.nx-lp-bento .dark p {
+    color: rgba(255, 248, 231, .75)
+}
+
+.nx-lp-bento .tint {
+    background: var(--tint);
+    color: #341F1A
+}
+
+.nx-lp-bento .tint p {
+    color: rgba(52, 31, 26, .75)
+}
+
+.nx-lp-bento h3 {
+    font-size: 24px
+}
+
+.nx-lp-bento p {
+    font-size: 14px
+}
+
+.nx-lp-ic {
+    display: grid;
+    width: 46px;
+    height: 46px;
+    margin-bottom: auto;
+    place-items: center;
+    border-radius: 12px;
+    background: var(--tint);
+    color: var(--teal);
+    font-size: 19px;
+    transition: transform .4s
+}
+
+.nx-lp-bento .b:hover .nx-lp-ic {
+    transform: rotate(-12deg) scale(1.12)
+}
+
+.nx-lp-steps {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px
+}
+
+.nx-lp-step {
+    padding: 26px 22px;
+    border-top: 2px solid var(--ink);
+    transition: background .3s, padding-top .3s
+}
+
+.nx-lp-step:hover {
+    padding-top: 38px;
+    background: var(--tint)
+}
+
+.nx-lp-step b {
+    display: block;
+    color: transparent;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 64px;
+    font-weight: 500;
+    -webkit-text-stroke: 1.5px var(--gold)
+}
+
+.nx-lp-step h3 {
+    margin: 10px 0 8px;
+    font-size: 22px
+}
+
+.nx-lp-step p {
+    font-size: 14px
+}
+
+.nx-lp-roles {
+    border-top: 1px solid var(--line)
+}
+
+.nx-lp-role {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 26px 14px;
+    border-bottom: 1px solid var(--line);
+    background: linear-gradient(var(--tint), var(--tint)) left/0% 100% no-repeat;
+    color: inherit;
+    text-decoration: none;
+    transition: background-size .5s cubic-bezier(.22, 1, .36, 1), padding-left .4s
+}
+
+.nx-lp-role:hover {
+    background-size: 100% 100%;
+    padding-left: 28px;
+    color: #341F1A
+}
+
+.nx-lp-role h3 {
+    font-size: clamp(22px, 2.6vw, 32px)
+}
+
+.nx-lp-role small {
+    display: block;
+    margin-top: 6px;
+    color: var(--mut);
+    font-size: 13px
+}
+
+.nx-lp-role i {
+    display: grid;
+    flex: none;
+    width: 46px;
+    height: 46px;
+    place-items: center;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    font-style: normal;
+    transition: transform .4s, background .3s, color .3s
+}
+
+.nx-lp-role:hover i {
+    transform: rotate(-45deg);
+    background: #341F1A;
+    color: #FFF8E7
+}
+
+.nx-lp a:focus-visible {
+    outline: 2px solid var(--teal);
+    outline-offset: 3px
+}
+
+@media(prefers-reduced-motion:reduce) {
+
+    .nx-lp .w,
+    .rv {
+        opacity: 1;
+        transform: none;
+        animation: none;
+        transition: none
+    }
+
+    .nx-lp .fc,
+    .nx-lp-mq div {
+        animation: none
+    }
+}
+
+@media(max-width:900px) {
+    .nx-lp-hero .nx-lp-wrap {
+        grid-template-columns: 1fr
+    }
+
+    .nx-lp-bento,
+    .nx-lp-steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
+}
+
+@media(max-width:560px) {
+
+    .nx-lp-bento,
+    .nx-lp-steps {
+        grid-template-columns: 1fr
+    }
+
+    .nx-lp-bento .wide {
+        grid-column: auto
+    }
+}
+
+.nx-lp-cta .nx-lp-wrap {
+  display: grid;
+  grid-template-columns: 1fr 0.7fr;
+  align-items: center;
+  justify-content: space-between;
+  /* gap: 50px; */
+  padding: 50px 40px;
+  background: linear-gradient(to left, #FFF8E7 20%,  #CFE1E2 50%, #658D8E 100%);
+  margin: 70px 0;
+  width: 100%;
+}
+
+.nx-lp-cta .nx-lp-wrap {
+    /* display: grid;
+    grid-template-columns: 1fr .9fr;
+    align-items: center;
+    gap: clamp(28px, 5vw, 64px) */
+}
+
+.nx-lp-cta-eyebrow {
+    display: block;
+    margin-bottom: 26px;
+    /* font-family: Georgia, "Times New Roman", serif; */
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3.4px;
+    text-transform: uppercase
+}
+
+.nx-lp-cta h2 {
+    font-family: Roboto, system-ui, sans-serif;
+    margin: 20px 0;
+  font-size: clamp(38px, 5vw, 62px);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.nx-lp-cta p {
+    max-width: 480px;
+    margin-top: 20px;
+    color: rgba(52, 31, 26, .8)
+}
+
+.nx-lp-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 34px;
+    margin-top: 34px;
+    padding: 10px 31px;
+    border-radius: 3px;
+    background: #CFE1E2;
+    color: #341F1A;
+    /* font-family: Georgia, "Times New Roman", serif; */
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background .3s, transform .3s, box-shadow .3s
+}
+
+.nx-lp-cta-btn:hover {
+    background: #FFF8E7;
+    transform: translateY(-3px);
+    box-shadow: 0 14px 28px rgba(52, 31, 26, .18)
+}
+
+.nx-lp-cta-btn span {
+    font-size: 22px;
+    transition: transform .3s
+}
+
+.nx-lp-cta-btn:hover span {
+    transform: translate(4px, -4px)
+}
+
+.nx-lp-cta-logo {
+    display: grid;
+    justify-items: center;
+    gap: 10px;
+    text-align: center
+}
+
+.nx-lp-cta-logo img {
+    width: min(520px, 100%)
+}
+
+.nx-lp-cta-logo b {
+    font-family: Georgia, serif;
+    font-size: clamp(64px, 9vw, 120px);
+    font-weight: 700;
+    letter-spacing: -3px
+}
+
+.nx-lp-cta-logo small {
+    font-size: 13px;
+    letter-spacing: 4px
+}
+
+@media(max-width:900px) {
+    .nx-lp-cta .nx-lp-wrap {
+        grid-template-columns: 1fr
+    }
+
+    .nx-lp-cta {
+        background: linear-gradient(160deg, #6B9496, #CFE1E2 60%, #FFF8E7)
+    }
+
+    .nx-lp-cta-logo {
+        order: -1
+    }
+}
